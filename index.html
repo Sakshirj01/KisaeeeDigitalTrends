@@ -389,70 +389,95 @@
     color: rgba(46,204,113,0.6);
   }
 
-  /* ── PACKAGES ── */
-  .packages-grid {
-    display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem;
-    margin-top: 3.5rem;
-  }
+  <!-- PACKAGES SECTION -->
+<section id="packages" class="packages-section">
+  <div class="packages-top">
+    <span class="packages-number">06</span>
+    <h2>OUR <span>PACKAGES</span></h2>
+  </div>
 
-  .package-card {
-    border: 0.5px solid rgba(46,204,113,0.15);
-    padding: 2.5rem 2rem;
-    position: relative; transition: border-color 0.3s;
-  }
+  <p class="packages-desc">
+    Choose the package that fits your needs and supports your goals as your business grows.
+  </p>
 
-  .package-card:hover { border-color: rgba(46,204,113,0.45); }
+  <div class="pricing-wrapper">
 
-  .package-card.featured {
-    border-color: var(--gold);
-    background: rgba(46,204,113,0.04);
-  }
+    <!-- BASIC -->
+    <div class="pricing-card light-card">
+      <div class="card-icon">👤</div>
 
-  .package-badge {
-    position: absolute; top: -0.6rem; left: 1.5rem;
-    background: var(--gold); color: var(--black);
-    font-family: 'Syne', sans-serif; font-size: 0.65rem;
-    font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase;
-    padding: 0.2rem 0.7rem;
-  }
+      <h3>Basic</h3>
 
-  .package-name {
-    font-family: 'Syne', sans-serif; font-size: 1rem;
-    font-weight: 700; letter-spacing: 0.05em;
-    color: var(--white); margin-bottom: 0.5rem;
-  }
+      <div class="price-box">
+        <span class="price">10</span>
+        <span class="month">Thousand/Mon</span>
+      </div>
 
-  .package-price {
-    font-family: 'Syne', sans-serif;
-    font-size: 2.2rem; font-weight: 800; color: var(--gold);
-    margin: 1rem 0;
-  }
+      <div class="includes">Includes:</div>
 
-  .package-price span { font-size: 0.9rem; font-weight: 400; color: rgba(245,242,236,0.4); }
+      <ul>
+        <li>6 Posts per month</li>
+        <li>3 Reels per month</li>
+        <li>Basic Ad Setup</li>
+        <li>Monthly Performance Report</li>
+        <li>Professional Photoshoot (Monthly - 1)</li>
+      </ul>
+    </div>
 
-  .package-features { list-style: none; margin: 1.5rem 0; }
+    <!-- PRO -->
+    <div class="pricing-card pro-card">
+      <div class="card-icon">👍</div>
 
-  .package-features li {
-    font-size: 0.85rem; color: rgba(245,242,236,0.6);
-    padding: 0.45rem 0; border-bottom: 0.5px solid rgba(245,242,236,0.07);
-    display: flex; align-items: center; gap: 0.6rem;
-  }
+      <h3>Pro</h3>
 
-  .package-features li::before { content: '—'; color: var(--gold); }
+      <div class="price-box yellow">
+        <span class="price">20</span>
+        <span class="month">Thousand/Mon</span>
+      </div>
 
-  .btn-package {
-    display: block; text-align: center; text-decoration: none;
-    margin-top: 1.5rem; padding: 0.75rem;
-    font-family: 'Syne', sans-serif; font-size: 0.78rem;
-    font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
-    border: 0.5px solid rgba(46,204,113,0.35); color: var(--gold);
-    transition: all 0.2s;
-  }
-  .btn-package:hover { background: var(--gold); color: var(--black); border-color: var(--gold); }
+      <div class="includes white">
+        Includes: <span>(QR Code Marketing)</span>
+      </div>
 
-  .package-card.featured .btn-package {
-    background: var(--gold); color: var(--black); border-color: var(--gold);
-  }
+      <ul class="white-list">
+        <li>12 Posts per month</li>
+        <li>8 Reels per month</li>
+        <li>Complete Lead Funnel Setup</li>
+        <li>AI Voice Promotional Videos</li>
+        <li>Parent Testimonial Videos</li>
+        <li>High-focused Meta & Google Ads</li>
+        <li>Detailed Analytics & Growth Planning</li>
+        <li>Professional Photoshoot + Event Coverage</li>
+      </ul>
+
+      <div class="popular-tag">MOST POPULAR</div>
+    </div>
+
+    <!-- ADVANCE -->
+    <div class="pricing-card light-card">
+      <div class="card-icon">👑</div>
+
+      <h3>Advance</h3>
+
+      <div class="price-box">
+        <span class="price">15</span>
+        <span class="month">Thousand/Mon</span>
+      </div>
+
+      <div class="includes">Includes:</div>
+
+      <ul>
+        <li>8 Posts per month</li>
+        <li>5 Reels per month</li>
+        <li>Lead Generation Strategy</li>
+        <li>QR Code Marketing</li>
+        <li>Monthly Report + Strategy Review</li>
+        <li>Professional Photoshoot (Monthly - 2)</li>
+      </ul>
+    </div>
+
+  </div>
+</section>
 
   /* ── STATS BAND ── */
   .stats-band {
