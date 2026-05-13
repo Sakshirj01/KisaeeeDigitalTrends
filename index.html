@@ -1,0 +1,1196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>KISAEEE Digital Trend</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet"/>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --black: #050F0A;
+    --white: #E8F5EE;
+    --cream: #D4EDDF;
+    --gold: #2ECC71;
+    --gold-light: #82E6A8;
+    --gold-dark: #1A7A43;
+    --charcoal: #0C1F14;
+    --muted: #4A7A5C;
+    --accent: #27AE60;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--black);
+    color: var(--white);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4, nav, .label { font-family: 'Syne', sans-serif; }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 1.25rem 4rem;
+    background: rgba(5,15,10,0.88);
+    backdrop-filter: blur(12px);
+    border-bottom: 0.5px solid rgba(46,204,113,0.18);
+  }
+
+  .nav-logo {
+    font-size: 1.25rem; font-weight: 800; letter-spacing: 0.08em;
+    color: var(--gold); text-decoration: none;
+  }
+  .nav-logo span { color: var(--white); }
+
+  .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+  .nav-links a {
+    text-decoration: none; font-size: 0.82rem; font-weight: 600;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    color: rgba(245,242,236,0.6);
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--gold); }
+
+  .nav-cta {
+    background: var(--gold); color: var(--black);
+    border: none; padding: 0.6rem 1.4rem;
+    font-family: 'Syne', sans-serif; font-weight: 700;
+    font-size: 0.78rem; letter-spacing: 0.1em; text-transform: uppercase;
+    cursor: pointer; text-decoration: none;
+    transition: background 0.2s, transform 0.15s;
+  }
+  .nav-cta:hover { background: var(--gold-light); transform: translateY(-1px); }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    padding: 8rem 4rem 4rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse 60% 50% at 70% 40%, rgba(46,204,113,0.06) 0%, transparent 70%),
+      radial-gradient(ellipse 40% 60% at 20% 80%, rgba(46,204,113,0.04) 0%, transparent 60%);
+    pointer-events: none;
+  }
+
+  .hero-grid-overlay {
+    position: absolute; inset: 0; pointer-events: none;
+    background-image:
+      linear-gradient(rgba(46,204,113,0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(46,204,113,0.04) 1px, transparent 1px);
+    background-size: 60px 60px;
+  }
+
+  .hero-left { position: relative; z-index: 2; }
+
+  .hero-tag {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    font-family: 'Syne', sans-serif; font-size: 0.72rem;
+    font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--gold); border: 0.5px solid rgba(46,204,113,0.4);
+    padding: 0.35rem 0.9rem; margin-bottom: 2rem;
+  }
+  .hero-tag::before {
+    content: ''; width: 6px; height: 6px;
+    background: var(--gold); border-radius: 50%;
+    animation: pulse 2s infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.4; transform: scale(0.7); }
+  }
+
+  .hero h1 {
+    font-size: clamp(3rem, 5.5vw, 5.5rem);
+    font-weight: 800; line-height: 1.0;
+    letter-spacing: -0.02em;
+    margin-bottom: 1.75rem;
+  }
+
+  .hero h1 em {
+    font-style: normal; color: transparent;
+    -webkit-text-stroke: 1.5px var(--gold);
+  }
+
+  .hero-sub {
+    font-size: 1.05rem; color: rgba(245,242,236,0.6);
+    max-width: 420px; margin-bottom: 2.5rem; line-height: 1.8;
+  }
+
+  .hero-actions { display: flex; align-items: center; gap: 1.5rem; }
+
+  .btn-primary {
+    background: var(--gold); color: var(--black);
+    padding: 0.9rem 2rem; text-decoration: none;
+    font-family: 'Syne', sans-serif; font-weight: 700;
+    font-size: 0.82rem; letter-spacing: 0.1em; text-transform: uppercase;
+    transition: all 0.2s;
+  }
+  .btn-primary:hover { background: var(--gold-light); transform: translateY(-2px); }
+
+  .btn-outline {
+    color: var(--white); text-decoration: none;
+    font-family: 'Syne', sans-serif; font-size: 0.82rem;
+    font-weight: 600; letter-spacing: 0.08em;
+    border-bottom: 1px solid rgba(245,242,236,0.3);
+    padding-bottom: 2px; transition: all 0.2s;
+  }
+  .btn-outline:hover { color: var(--gold); border-color: var(--gold); }
+
+  .hero-right {
+    position: relative; z-index: 2;
+    display: flex; justify-content: center; align-items: center;
+  }
+
+  .hero-visual {
+    width: 420px; height: 420px;
+    border: 0.5px solid rgba(46,204,113,0.2);
+    position: relative; display: flex; align-items: center; justify-content: center;
+  }
+
+  .hero-visual::before {
+    content: ''; position: absolute; inset: 20px;
+    border: 0.5px solid rgba(46,204,113,0.12);
+  }
+
+  .hero-visual-inner {
+    text-align: center; position: relative; z-index: 1;
+  }
+
+  .hero-stat-ring {
+    width: 200px; height: 200px; border-radius: 50%;
+    border: 2px solid rgba(46,204,113,0.2);
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    position: relative; margin: 0 auto 1.5rem;
+  }
+
+  .hero-stat-ring::before {
+    content: '';
+    position: absolute; inset: -12px; border-radius: 50%;
+    border: 0.5px solid rgba(46,204,113,0.1);
+  }
+  .hero-stat-ring::after {
+    content: '';
+    position: absolute; inset: -24px; border-radius: 50%;
+    border: 0.5px solid rgba(46,204,113,0.05);
+  }
+
+  .ring-number {
+    font-family: 'Syne', sans-serif; font-size: 3rem; font-weight: 800;
+    color: var(--gold); line-height: 1;
+  }
+
+  .ring-label {
+    font-size: 0.72rem; letter-spacing: 0.15em; text-transform: uppercase;
+    color: rgba(245,242,236,0.4); margin-top: 0.3rem;
+  }
+
+  .hero-mini-stats {
+    display: flex; gap: 1.5rem; justify-content: center;
+  }
+
+  .mini-stat { text-align: center; }
+  .mini-stat-n {
+    font-family: 'Syne', sans-serif; font-size: 1.3rem; font-weight: 700;
+    color: var(--white);
+  }
+  .mini-stat-l {
+    font-size: 0.68rem; letter-spacing: 0.12em; text-transform: uppercase;
+    color: rgba(245,242,236,0.35);
+  }
+
+  /* ── MARQUEE ── */
+  .marquee-wrap {
+    border-top: 0.5px solid rgba(46,204,113,0.15);
+    border-bottom: 0.5px solid rgba(46,204,113,0.15);
+    overflow: hidden; padding: 1rem 0;
+    background: rgba(46,204,113,0.03);
+  }
+
+  .marquee-track {
+    display: flex; gap: 3rem; width: max-content;
+    animation: marquee 20s linear infinite;
+  }
+
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+
+  .marquee-item {
+    font-family: 'Syne', sans-serif; font-size: 0.78rem;
+    font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase;
+    color: rgba(46,204,113,0.5); white-space: nowrap;
+    display: flex; align-items: center; gap: 1.5rem;
+  }
+
+  .marquee-item::after {
+    content: '✦'; color: rgba(46,204,113,0.3); font-size: 0.5rem;
+  }
+
+  /* ── SECTIONS ── */
+  section { padding: 7rem 4rem; }
+
+  .section-tag {
+    font-family: 'Syne', sans-serif; font-size: 0.72rem;
+    font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 1rem;
+  }
+
+  .section-heading {
+    font-size: clamp(2rem, 3.5vw, 3.2rem);
+    font-weight: 800; line-height: 1.1;
+    letter-spacing: -0.02em;
+    margin-bottom: 1.25rem;
+  }
+
+  .section-sub {
+    font-size: 1rem; color: rgba(245,242,236,0.55);
+    max-width: 480px; line-height: 1.8;
+  }
+
+  /* ── ABOUT ── */
+  .about-grid {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 6rem; align-items: center;
+  }
+
+  .about-pillars {
+    display: flex; flex-direction: column; gap: 1.5rem; margin-top: 3rem;
+  }
+
+  .pillar {
+    display: flex; gap: 1.25rem; align-items: flex-start;
+    padding: 1.5rem; border: 0.5px solid rgba(46,204,113,0.12);
+    transition: border-color 0.3s, background 0.3s;
+  }
+  .pillar:hover {
+    border-color: rgba(46,204,113,0.35);
+    background: rgba(46,204,113,0.03);
+  }
+
+  .pillar-icon {
+    width: 42px; height: 42px; border: 0.5px solid rgba(46,204,113,0.3);
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0; color: var(--gold); font-size: 1rem;
+    font-family: 'Syne', sans-serif; font-weight: 800;
+  }
+
+  .pillar-title {
+    font-family: 'Syne', sans-serif; font-size: 0.85rem;
+    font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;
+    color: var(--white); margin-bottom: 0.4rem;
+  }
+
+  .pillar-text { font-size: 0.88rem; color: rgba(245,242,236,0.5); line-height: 1.7; }
+
+  .about-right { position: relative; }
+
+  .about-visual {
+    width: 100%; aspect-ratio: 4/5;
+    border: 0.5px solid rgba(46,204,113,0.15);
+    background: var(--charcoal);
+    display: flex; align-items: center; justify-content: center;
+    position: relative; overflow: hidden;
+  }
+
+  .about-visual-inner {
+    font-family: 'Syne', sans-serif; font-size: 8rem; font-weight: 800;
+    color: transparent; -webkit-text-stroke: 1px rgba(46,204,113,0.12);
+    user-select: none; line-height: 1;
+    position: absolute; bottom: -0.1em; right: -0.05em;
+  }
+
+  .about-quote {
+    position: absolute; top: 2rem; left: -1.5rem;
+    background: var(--black); border: 0.5px solid rgba(46,204,113,0.25);
+    padding: 1.25rem 1.5rem; max-width: 280px;
+  }
+
+  .about-quote p {
+    font-size: 0.88rem; color: rgba(245,242,236,0.7);
+    font-style: italic; line-height: 1.7;
+  }
+
+  .about-quote-author {
+    margin-top: 0.75rem;
+    font-family: 'Syne', sans-serif; font-size: 0.72rem;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--gold);
+  }
+
+  /* ── SERVICES ── */
+  #services { background: var(--charcoal); }
+
+  .services-header {
+    display: flex; justify-content: space-between; align-items: flex-end;
+    margin-bottom: 4rem;
+  }
+
+  .services-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 1px; background: rgba(46,204,113,0.1);
+  }
+
+  .service-card {
+    background: var(--charcoal);
+    padding: 2.5rem 2rem; position: relative; overflow: hidden;
+    transition: background 0.3s;
+    cursor: default;
+  }
+
+  .service-card::before {
+    content: ''; position: absolute;
+    bottom: 0; left: 0; right: 0; height: 2px;
+    background: var(--gold); transform: scaleX(0);
+    transform-origin: left; transition: transform 0.35s ease;
+  }
+
+  .service-card:hover { background: rgba(46,204,113,0.05); }
+  .service-card:hover::before { transform: scaleX(1); }
+
+  .service-num {
+    font-family: 'Syne', sans-serif; font-size: 0.68rem;
+    font-weight: 700; letter-spacing: 0.18em;
+    color: rgba(46,204,113,0.35); margin-bottom: 1.5rem;
+  }
+
+  .service-title {
+    font-family: 'Syne', sans-serif; font-size: 1.15rem;
+    font-weight: 700; margin-bottom: 0.75rem; color: var(--white);
+  }
+
+  .service-desc { font-size: 0.88rem; color: rgba(245,242,236,0.45); line-height: 1.7; }
+
+  .service-tags {
+    margin-top: 1.5rem; display: flex; flex-wrap: wrap; gap: 0.5rem;
+  }
+
+  .tag {
+    font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase;
+    border: 0.5px solid rgba(46,204,113,0.2); padding: 0.25rem 0.6rem;
+    color: rgba(46,204,113,0.6);
+  }
+
+  /* ── PACKAGES ── */
+  .packages-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem;
+    margin-top: 3.5rem;
+  }
+
+  .package-card {
+    border: 0.5px solid rgba(46,204,113,0.15);
+    padding: 2.5rem 2rem;
+    position: relative; transition: border-color 0.3s;
+  }
+
+  .package-card:hover { border-color: rgba(46,204,113,0.45); }
+
+  .package-card.featured {
+    border-color: var(--gold);
+    background: rgba(46,204,113,0.04);
+  }
+
+  .package-badge {
+    position: absolute; top: -0.6rem; left: 1.5rem;
+    background: var(--gold); color: var(--black);
+    font-family: 'Syne', sans-serif; font-size: 0.65rem;
+    font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase;
+    padding: 0.2rem 0.7rem;
+  }
+
+  .package-name {
+    font-family: 'Syne', sans-serif; font-size: 1rem;
+    font-weight: 700; letter-spacing: 0.05em;
+    color: var(--white); margin-bottom: 0.5rem;
+  }
+
+  .package-price {
+    font-family: 'Syne', sans-serif;
+    font-size: 2.2rem; font-weight: 800; color: var(--gold);
+    margin: 1rem 0;
+  }
+
+  .package-price span { font-size: 0.9rem; font-weight: 400; color: rgba(245,242,236,0.4); }
+
+  .package-features { list-style: none; margin: 1.5rem 0; }
+
+  .package-features li {
+    font-size: 0.85rem; color: rgba(245,242,236,0.6);
+    padding: 0.45rem 0; border-bottom: 0.5px solid rgba(245,242,236,0.07);
+    display: flex; align-items: center; gap: 0.6rem;
+  }
+
+  .package-features li::before { content: '—'; color: var(--gold); }
+
+  .btn-package {
+    display: block; text-align: center; text-decoration: none;
+    margin-top: 1.5rem; padding: 0.75rem;
+    font-family: 'Syne', sans-serif; font-size: 0.78rem;
+    font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+    border: 0.5px solid rgba(46,204,113,0.35); color: var(--gold);
+    transition: all 0.2s;
+  }
+  .btn-package:hover { background: var(--gold); color: var(--black); border-color: var(--gold); }
+
+  .package-card.featured .btn-package {
+    background: var(--gold); color: var(--black); border-color: var(--gold);
+  }
+
+  /* ── STATS BAND ── */
+  .stats-band {
+    background: var(--gold);
+    padding: 3.5rem 4rem;
+    display: grid; grid-template-columns: repeat(4, 1fr);
+    gap: 2rem; text-align: center;
+  }
+
+  .stat-item { }
+
+  .stat-number {
+    font-family: 'Syne', sans-serif; font-size: 3rem;
+    font-weight: 800; color: var(--black); line-height: 1;
+  }
+
+  .stat-label {
+    font-family: 'Syne', sans-serif; font-size: 0.72rem;
+    font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase;
+    color: rgba(5,15,10,0.65); margin-top: 0.4rem;
+  }
+
+  /* ── PORTFOLIO ── */
+  #portfolio { background: var(--black); }
+
+  .portfolio-header { margin-bottom: 3.5rem; }
+
+  .portfolio-grid {
+    display: grid; grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: auto auto;
+    gap: 1px; background: rgba(46,204,113,0.1);
+  }
+
+  .portfolio-item {
+    background: var(--charcoal); aspect-ratio: 1;
+    position: relative; overflow: hidden; cursor: pointer;
+    display: flex; align-items: flex-end; padding: 1.25rem;
+  }
+
+  .portfolio-item:first-child { grid-column: span 2; grid-row: span 2; aspect-ratio: unset; }
+
+  .portfolio-bg {
+    position: absolute; inset: 0;
+    background: linear-gradient(135deg, rgba(46,204,113,0.06) 0%, transparent 60%);
+    transition: opacity 0.4s;
+  }
+
+  .portfolio-item:hover .portfolio-bg { opacity: 3; }
+
+  .portfolio-label {
+    position: relative; z-index: 1;
+    font-family: 'Syne', sans-serif; font-size: 0.8rem;
+    font-weight: 600; color: rgba(245,242,236,0.5);
+    letter-spacing: 0.06em;
+    transition: color 0.3s;
+  }
+
+  .portfolio-item:hover .portfolio-label { color: var(--gold); }
+
+  .portfolio-num {
+    position: absolute; top: 1.25rem; right: 1.25rem; z-index: 1;
+    font-family: 'Syne', sans-serif; font-size: 0.68rem;
+    color: rgba(46,204,113,0.25); letter-spacing: 0.15em;
+  }
+
+  /* ── CLIENTS ── */
+  #clients { padding: 5rem 4rem; background: var(--charcoal); }
+
+  .clients-row {
+    display: flex; justify-content: space-around; align-items: center;
+    flex-wrap: wrap; gap: 2rem; margin-top: 3rem;
+  }
+
+  .client-logo {
+    font-family: 'Syne', sans-serif; font-size: 1rem;
+    font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+    color: rgba(245,242,236,0.2); transition: color 0.25s;
+    cursor: default;
+  }
+  .client-logo:hover { color: rgba(46,204,113,0.6); }
+
+  /* ── CONTACT ── */
+  #contact { background: var(--black); }
+
+  .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; }
+
+  .contact-info { }
+  .contact-info p { font-size: 1rem; color: rgba(245,242,236,0.55); line-height: 1.8; margin-bottom: 2.5rem; }
+
+  .contact-detail {
+    display: flex; align-items: flex-start; gap: 1rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .contact-icon {
+    width: 40px; height: 40px;
+    border: 0.5px solid rgba(46,204,113,0.25);
+    display: flex; align-items: center; justify-content: center;
+    color: var(--gold); font-size: 0.8rem; flex-shrink: 0;
+  }
+
+  .contact-detail-text strong {
+    display: block; font-family: 'Syne', sans-serif;
+    font-size: 0.72rem; letter-spacing: 0.15em; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 0.2rem;
+  }
+
+  .contact-detail-text span { font-size: 0.9rem; color: rgba(245,242,236,0.55); }
+
+  .contact-form { display: flex; flex-direction: column; gap: 1rem; }
+
+  .form-group { display: flex; flex-direction: column; gap: 0.4rem; }
+  .form-group label {
+    font-family: 'Syne', sans-serif; font-size: 0.68rem;
+    letter-spacing: 0.15em; text-transform: uppercase;
+    color: rgba(245,242,236,0.4);
+  }
+
+  .form-group input, .form-group textarea, .form-group select {
+    background: rgba(245,242,236,0.04);
+    border: 0.5px solid rgba(46,204,113,0.15);
+    color: var(--white); padding: 0.85rem 1rem;
+    font-family: 'DM Sans', sans-serif; font-size: 0.9rem;
+    outline: none; transition: border-color 0.25s;
+    width: 100%;
+  }
+
+  .form-group input:focus, .form-group textarea:focus, .form-group select:focus {
+    border-color: rgba(46,204,113,0.5);
+  }
+
+  .form-group textarea { min-height: 120px; resize: vertical; }
+  .form-group select option { background: #1C1C1E; }
+
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+
+  .btn-submit {
+    background: var(--gold); color: var(--black); border: none;
+    padding: 1rem 2rem; cursor: pointer;
+    font-family: 'Syne', sans-serif; font-weight: 700;
+    font-size: 0.82rem; letter-spacing: 0.12em; text-transform: uppercase;
+    transition: all 0.2s; text-align: center;
+    margin-top: 0.5rem;
+  }
+
+  .btn-submit:hover { background: var(--gold-light); transform: translateY(-1px); }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--charcoal);
+    padding: 4rem 4rem 2rem;
+    border-top: 0.5px solid rgba(46,204,113,0.12);
+  }
+
+  .footer-grid {
+    display: grid; grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 3rem; margin-bottom: 3rem;
+  }
+
+  .footer-brand-logo {
+    font-family: 'Syne', sans-serif; font-size: 1.5rem; font-weight: 800;
+    color: var(--gold); margin-bottom: 1rem; letter-spacing: 0.06em;
+  }
+
+  .footer-brand-logo span { color: var(--white); }
+
+  .footer-desc { font-size: 0.88rem; color: rgba(245,242,236,0.4); line-height: 1.8; max-width: 280px; }
+
+  .footer-col-title {
+    font-family: 'Syne', sans-serif; font-size: 0.72rem;
+    font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 1.25rem;
+  }
+
+  .footer-links { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; }
+  .footer-links a {
+    text-decoration: none; font-size: 0.88rem;
+    color: rgba(245,242,236,0.4); transition: color 0.2s;
+  }
+  .footer-links a:hover { color: var(--white); }
+
+  .footer-bottom {
+    display: flex; justify-content: space-between; align-items: center;
+    padding-top: 2rem; border-top: 0.5px solid rgba(46,204,113,0.1);
+  }
+
+  .footer-copy {
+    font-size: 0.78rem; color: rgba(245,242,236,0.25);
+    letter-spacing: 0.05em;
+  }
+
+  .footer-socials { display: flex; gap: 1rem; }
+  .social-link {
+    width: 36px; height: 36px;
+    border: 0.5px solid rgba(46,204,113,0.2);
+    display: flex; align-items: center; justify-content: center;
+    color: rgba(245,242,236,0.35); text-decoration: none; font-size: 0.78rem;
+    font-family: 'Syne', sans-serif; font-weight: 700;
+    transition: all 0.2s;
+  }
+  .social-link:hover { border-color: var(--gold); color: var(--gold); }
+
+  /* ── TEAM ── */
+  .team-grid {
+    display: grid; grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem; margin-top: 3.5rem;
+  }
+
+  .team-card { border: 0.5px solid rgba(46,204,113,0.12); overflow: hidden; }
+
+  .team-photo {
+    aspect-ratio: 3/4; background: var(--charcoal);
+    display: flex; align-items: center; justify-content: center; position: relative;
+    overflow: hidden;
+  }
+
+  .team-initials {
+    font-family: 'Syne', sans-serif; font-size: 2.5rem; font-weight: 800;
+    color: rgba(46,204,113,0.15);
+  }
+
+  .team-info { padding: 1.25rem; }
+
+  .team-name {
+    font-family: 'Syne', sans-serif; font-size: 0.95rem;
+    font-weight: 700; color: var(--white); margin-bottom: 0.3rem;
+  }
+
+  .team-role { font-size: 0.78rem; color: var(--gold); letter-spacing: 0.08em; }
+
+  @media (max-width: 900px) {
+    nav { padding: 1rem 1.5rem; }
+    .nav-links { display: none; }
+    .hero { grid-template-columns: 1fr; padding: 7rem 1.5rem 3rem; }
+    .hero-right { display: none; }
+    section { padding: 4rem 1.5rem; }
+    .about-grid, .contact-grid { grid-template-columns: 1fr; }
+    .services-grid, .packages-grid { grid-template-columns: 1fr; }
+    .footer-grid { grid-template-columns: 1fr 1fr; }
+    .portfolio-grid { grid-template-columns: repeat(2, 1fr); }
+    .portfolio-item:first-child { grid-column: span 2; }
+    .team-grid { grid-template-columns: repeat(2, 1fr); }
+    .stats-band { grid-template-columns: repeat(2, 1fr); }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">KISAEEE<span>.</span></a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#portfolio">Portfolio</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="#contact" class="nav-cta">Get Started</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-grid-overlay"></div>
+  <div class="hero-left">
+    <div class="hero-tag">Digital Marketing Agency</div>
+    <h1>Your Customers<br/>Are <em>Online</em> —<br/>Are You?</h1>
+    <p class="hero-sub">We understand that every brand starts with an idea. At KISAEEE Digital Trend, we keep things easy to connect with — helping your business show up exactly where people are.</p>
+    <div class="hero-actions">
+      <a href="#services" class="btn-primary">Explore Services</a>
+      <a href="#portfolio" class="btn-outline">View Our Work</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-visual">
+      <div class="hero-visual-inner">
+        <div class="hero-stat-ring">
+          <div class="ring-number">98%</div>
+          <div class="ring-label">Success Rate</div>
+        </div>
+        <div class="hero-mini-stats">
+          <div class="mini-stat">
+            <div class="mini-stat-n">50+</div>
+            <div class="mini-stat-l">Projects</div>
+          </div>
+          <div class="mini-stat">
+            <div class="mini-stat-n">40+</div>
+            <div class="mini-stat-l">Clients</div>
+          </div>
+          <div class="mini-stat">
+            <div class="mini-stat-n">10+</div>
+            <div class="mini-stat-l">Experts</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee-wrap">
+  <div class="marquee-track">
+    <div class="marquee-item">Branding</div>
+    <div class="marquee-item">Digital Marketing</div>
+    <div class="marquee-item">SEO</div>
+    <div class="marquee-item">Social Media</div>
+    <div class="marquee-item">Web Design</div>
+    <div class="marquee-item">Photography</div>
+    <div class="marquee-item">Video Production</div>
+    <div class="marquee-item">Google Ads</div>
+    <div class="marquee-item">Content Writing</div>
+    <div class="marquee-item">Branding</div>
+    <div class="marquee-item">Digital Marketing</div>
+    <div class="marquee-item">SEO</div>
+    <div class="marquee-item">Social Media</div>
+    <div class="marquee-item">Web Design</div>
+    <div class="marquee-item">Photography</div>
+    <div class="marquee-item">Video Production</div>
+    <div class="marquee-item">Google Ads</div>
+    <div class="marquee-item">Content Writing</div>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-grid">
+    <div class="about-left">
+      <div class="section-tag">About Us</div>
+      <h2 class="section-heading">Every Brand<br/>Has a Story</h2>
+      <p class="section-sub">We believe that every brand has its own story, and our role is to help bring that story forward in a clear and meaningful way — building digital experiences that feel natural, reliable, and easy to connect with.</p>
+
+      <div class="about-pillars">
+        <div class="pillar">
+          <div class="pillar-icon">01</div>
+          <div>
+            <div class="pillar-title">Our Story</div>
+            <p class="pillar-text">We began with a passion for creativity and a desire to support businesses in building a strong identity and growing in today's digital space.</p>
+          </div>
+        </div>
+        <div class="pillar">
+          <div class="pillar-icon">02</div>
+          <div>
+            <div class="pillar-title">Our Vision</div>
+            <p class="pillar-text">To help businesses grow confidently in the digital world and create a lasting presence that people trust and remember.</p>
+          </div>
+        </div>
+        <div class="pillar">
+          <div class="pillar-icon">03</div>
+          <div>
+            <div class="pillar-title">Our Mission</div>
+            <p class="pillar-text">Understand business needs and create digital solutions that build a strong foundation for long-term growth and future success.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="about-right">
+      <div class="about-visual">
+        <div class="about-visual-inner">K.</div>
+      </div>
+      <div class="about-quote">
+        <p>"As the digital world continues to grow, we continue to learn, adapt, and improve — so businesses can move forward with confidence."</p>
+        <div class="about-quote-author">KISAEEE Digital Trend</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="services-header">
+    <div>
+      <div class="section-tag">What We Do</div>
+      <h2 class="section-heading">Branding &amp; Marketing<br/>Solutions</h2>
+    </div>
+    <a href="#contact" class="btn-outline">All Services →</a>
+  </div>
+
+  <div class="services-grid">
+    <div class="service-card">
+      <div class="service-num">01 / Branding</div>
+      <div class="service-title">Brand Identity</div>
+      <p class="service-desc">Giving your business a unique identity that people recognize and trust — a clear image of who you are and what your brand represents.</p>
+      <div class="service-tags">
+        <span class="tag">Logo Design</span>
+        <span class="tag">Profile Setup</span>
+        <span class="tag">Business Card</span>
+        <span class="tag">Local Listing</span>
+      </div>
+    </div>
+
+    <div class="service-card">
+      <div class="service-num">02 / Design</div>
+      <div class="service-title">Creative &amp; Design</div>
+      <p class="service-desc">Visually compelling design work that communicates your brand values across every touchpoint — from graphics to full websites.</p>
+      <div class="service-tags">
+        <span class="tag">Graphic Design</span>
+        <span class="tag">Web Design</span>
+        <span class="tag">App Dev</span>
+        <span class="tag">Menu Cards</span>
+      </div>
+    </div>
+
+    <div class="service-card">
+      <div class="service-num">03 / Media</div>
+      <div class="service-title">Photo &amp; Video</div>
+      <p class="service-desc">Commercial photography and videography that captures your brand authentically and creates a strong visual story for your audience.</p>
+      <div class="service-tags">
+        <span class="tag">Photography</span>
+        <span class="tag">Videography</span>
+        <span class="tag">Animation</span>
+      </div>
+    </div>
+
+    <div class="service-card">
+      <div class="service-num">04 / Social</div>
+      <div class="service-title">Social Media Marketing</div>
+      <p class="service-desc">Spreading your message and bringing your brand closer to the people who need your services — across every relevant platform.</p>
+      <div class="service-tags">
+        <span class="tag">Instagram</span>
+        <span class="tag">Facebook</span>
+        <span class="tag">Content</span>
+        <span class="tag">Reels</span>
+      </div>
+    </div>
+
+    <div class="service-card">
+      <div class="service-num">05 / Performance</div>
+      <div class="service-title">Paid Ads &amp; SEO</div>
+      <p class="service-desc">Targeted Google and social media advertising combined with search engine optimization to maximize your visibility and ROI.</p>
+      <div class="service-tags">
+        <span class="tag">Google Ads</span>
+        <span class="tag">Meta Ads</span>
+        <span class="tag">SEO</span>
+        <span class="tag">Analytics</span>
+      </div>
+    </div>
+
+    <div class="service-card">
+      <div class="service-num">06 / Outreach</div>
+      <div class="service-title">Direct &amp; Influencer</div>
+      <p class="service-desc">Email campaigns, SMS marketing, WhatsApp broadcasts, influencer partnerships, and database marketing to reach your audience directly.</p>
+      <div class="service-tags">
+        <span class="tag">Email</span>
+        <span class="tag">WhatsApp</span>
+        <span class="tag">Influencer</span>
+        <span class="tag">Database</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS BAND -->
+<div class="stats-band">
+  <div class="stat-item">
+    <div class="stat-number">50+</div>
+    <div class="stat-label">Projects Completed</div>
+  </div>
+  <div class="stat-item">
+    <div class="stat-number">40+</div>
+    <div class="stat-label">Happy Clients</div>
+  </div>
+  <div class="stat-item">
+    <div class="stat-number">98%</div>
+    <div class="stat-label">Success Rate</div>
+  </div>
+  <div class="stat-item">
+    <div class="stat-number">10+</div>
+    <div class="stat-label">Team Members</div>
+  </div>
+</div>
+
+<!-- PACKAGES -->
+<section id="packages" style="background: var(--black);">
+  <div class="section-tag">Pricing</div>
+  <h2 class="section-heading">Digital Marketing Packages</h2>
+  <p class="section-sub">Flexible packages designed to match where your business is and where you want it to go.</p>
+
+  <div class="packages-grid">
+    <div class="package-card">
+      <div class="package-name">Starter</div>
+      <p style="font-size:0.85rem; color: rgba(245,242,236,0.45); margin: 0.5rem 0;">Perfect for new businesses building their online presence from scratch.</p>
+      <div class="package-price">Custom <span>/ month</span></div>
+      <ul class="package-features">
+        <li>Logo &amp; Brand Identity</li>
+        <li>Social Media Setup</li>
+        <li>Basic SEO Setup</li>
+        <li>Monthly Content (8 posts)</li>
+        <li>Monthly Report</li>
+      </ul>
+      <a href="#contact" class="btn-package">Get a Quote</a>
+    </div>
+
+    <div class="package-card featured">
+      <div class="package-badge">Most Popular</div>
+      <div class="package-name">Growth</div>
+      <p style="font-size:0.85rem; color: rgba(245,242,236,0.45); margin: 0.5rem 0;">For businesses ready to scale their digital marketing and online reach.</p>
+      <div class="package-price">Custom <span>/ month</span></div>
+      <ul class="package-features">
+        <li>Full Brand Package</li>
+        <li>Social Media Management</li>
+        <li>Google &amp; Meta Ads</li>
+        <li>SEO Optimization</li>
+        <li>Content (16 posts + reels)</li>
+        <li>Bi-weekly Report</li>
+      </ul>
+      <a href="#contact" class="btn-package">Get a Quote</a>
+    </div>
+
+    <div class="package-card">
+      <div class="package-name">Premium</div>
+      <p style="font-size:0.85rem; color: rgba(245,242,236,0.45); margin: 0.5rem 0;">Complete digital transformation with full-service marketing and production.</p>
+      <div class="package-price">Custom <span>/ month</span></div>
+      <ul class="package-features">
+        <li>Everything in Growth</li>
+        <li>Website Design &amp; Dev</li>
+        <li>Commercial Photography</li>
+        <li>Video Production</li>
+        <li>Influencer Campaign</li>
+        <li>Dedicated Account Manager</li>
+      </ul>
+      <a href="#contact" class="btn-package">Get a Quote</a>
+    </div>
+  </div>
+</section>
+
+<!-- PORTFOLIO -->
+<section id="portfolio">
+  <div class="portfolio-header">
+    <div class="section-tag">Our Work</div>
+    <h2 class="section-heading">Portfolio</h2>
+  </div>
+
+  <div class="portfolio-grid">
+    <div class="portfolio-item">
+      <div class="portfolio-bg"></div>
+      <div class="portfolio-num">01</div>
+      <div class="portfolio-label">Brand Identity Campaign</div>
+    </div>
+    <div class="portfolio-item">
+      <div class="portfolio-bg"></div>
+      <div class="portfolio-num">02</div>
+      <div class="portfolio-label">Social Media Growth</div>
+    </div>
+    <div class="portfolio-item">
+      <div class="portfolio-bg"></div>
+      <div class="portfolio-num">03</div>
+      <div class="portfolio-label">Product Photography</div>
+    </div>
+    <div class="portfolio-item">
+      <div class="portfolio-bg"></div>
+      <div class="portfolio-num">04</div>
+      <div class="portfolio-label">Restaurant Menu Design</div>
+    </div>
+    <div class="portfolio-item">
+      <div class="portfolio-bg"></div>
+      <div class="portfolio-num">05</div>
+      <div class="portfolio-label">Google Ads Campaign</div>
+    </div>
+  </div>
+</section>
+
+<!-- TEAM -->
+<section id="team" style="background: var(--charcoal);">
+  <div class="section-tag">Meet the Team</div>
+  <h2 class="section-heading">The People Behind<br/>the Brand</h2>
+
+  <div class="team-grid">
+    <div class="team-card">
+      <div class="team-photo"><div class="team-initials">AK</div></div>
+      <div class="team-info">
+        <div class="team-name">Ahmed K.</div>
+        <div class="team-role">Creative Director</div>
+      </div>
+    </div>
+    <div class="team-card">
+      <div class="team-photo"><div class="team-initials">SM</div></div>
+      <div class="team-info">
+        <div class="team-name">Sara M.</div>
+        <div class="team-role">Brand Strategist</div>
+      </div>
+    </div>
+    <div class="team-card">
+      <div class="team-photo"><div class="team-initials">YR</div></div>
+      <div class="team-info">
+        <div class="team-name">Yusuf R.</div>
+        <div class="team-role">Head of Digital Ads</div>
+      </div>
+    </div>
+    <div class="team-card">
+      <div class="team-photo"><div class="team-initials">NI</div></div>
+      <div class="team-info">
+        <div class="team-name">Nour I.</div>
+        <div class="team-role">Content &amp; SEO Lead</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CLIENTS -->
+<section id="clients">
+  <div class="section-tag">Trusted By</div>
+  <h2 class="section-heading">Our Clients</h2>
+  <div class="clients-row">
+    <div class="client-logo">Restora</div>
+    <div class="client-logo">NovaTech</div>
+    <div class="client-logo">PrimeShop</div>
+    <div class="client-logo">AlNour Est.</div>
+    <div class="client-logo">StyleHouse</div>
+    <div class="client-logo">GreenLeaf</div>
+    <div class="client-logo">UrbanBite</div>
+    <div class="client-logo">PixelEdge</div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="contact-grid">
+    <div class="contact-info">
+      <div class="section-tag">Get In Touch</div>
+      <h2 class="section-heading">Let's Build<br/>Something Together</h2>
+      <p>Ready to take your business to the next level? Reach out and let's talk about how we can grow your brand in the digital space.</p>
+
+      <div class="contact-detail">
+        <div class="contact-icon">☎</div>
+        <div class="contact-detail-text">
+          <strong>Call Us</strong>
+          <span>+971 00 000 0000</span>
+        </div>
+      </div>
+
+      <div class="contact-detail">
+        <div class="contact-icon">✉</div>
+        <div class="contact-detail-text">
+          <strong>Email Us</strong>
+          <span>hello@kisaeee.com</span>
+        </div>
+      </div>
+
+      <div class="contact-detail">
+        <div class="contact-icon">⌖</div>
+        <div class="contact-detail-text">
+          <strong>Our Office</strong>
+          <span>Dubai, United Arab Emirates</span>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div class="contact-form">
+        <div class="form-row">
+          <div class="form-group">
+            <label>First Name</label>
+            <input type="text" placeholder="John"/>
+          </div>
+          <div class="form-group">
+            <label>Last Name</label>
+            <input type="text" placeholder="Doe"/>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Email Address</label>
+          <input type="email" placeholder="john@example.com"/>
+        </div>
+        <div class="form-group">
+          <label>Phone Number</label>
+          <input type="tel" placeholder="+971 00 000 0000"/>
+        </div>
+        <div class="form-group">
+          <label>Service Interested In</label>
+          <select>
+            <option value="" disabled selected>Select a service</option>
+            <option>Branding &amp; Identity</option>
+            <option>Social Media Marketing</option>
+            <option>Website Design &amp; Dev</option>
+            <option>Google &amp; Meta Ads</option>
+            <option>SEO Optimization</option>
+            <option>Photography &amp; Video</option>
+            <option>Full Package</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Your Message</label>
+          <textarea placeholder="Tell us about your project…"></textarea>
+        </div>
+        <button class="btn-submit">Send Message →</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div>
+      <div class="footer-brand-logo">KISAEEE<span>.</span></div>
+      <p class="footer-desc">A creative digital marketing agency helping brands grow with confidence through branding, marketing, and design.</p>
+    </div>
+    <div>
+      <div class="footer-col-title">Pages</div>
+      <ul class="footer-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#portfolio">Portfolio</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Services</div>
+      <ul class="footer-links">
+        <li><a href="#">Brand Identity</a></li>
+        <li><a href="#">Social Media</a></li>
+        <li><a href="#">Google Ads</a></li>
+        <li><a href="#">SEO</a></li>
+        <li><a href="#">Photography</a></li>
+        <li><a href="#">Web Design</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Contact</div>
+      <ul class="footer-links">
+        <li><a href="#">hello@kisaeee.com</a></li>
+        <li><a href="#">+971 00 000 0000</a></li>
+        <li><a href="#">Dubai, UAE</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <div class="footer-copy">© 2025 KISAEEE Digital Trend. All rights reserved.</div>
+    <div class="footer-socials">
+      <a href="#" class="social-link">IG</a>
+      <a href="#" class="social-link">FB</a>
+      <a href="#" class="social-link">LI</a>
+      <a href="#" class="social-link">YT</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
