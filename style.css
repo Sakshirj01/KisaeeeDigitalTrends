@@ -107,9 +107,9 @@ nav {position: fixed; top: 0; left: 0; right: 0; z-index: 200;display: flex; ali
 }
 
 .nav-logo img{
-    height:90px;
-    width:auto;
-    display:block;
+    height: 80px;
+    width: auto;
+    object-fit: contain;
 }
 
 nav{
