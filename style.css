@@ -103,7 +103,7 @@ nav {position: fixed; top: 0; left: 0; right: 0; z-index: 200;display: flex; ali
 
 .nav-logo {
     width: 70px;
-    height: 80px;
+    height: 20px;
     overflow: hidden;
     display: flex;
     align-items: center;
