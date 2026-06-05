@@ -108,17 +108,15 @@ nav {
   transition: padding 0.3s;
 }
 
-.nav-logo {
-  font-size: 1.3rem; font-weight: 800; letter-spacing: 0.1em;
-  color: var(--gold);
+.nav-logo{
+    display:flex;
+    align-items:center;
 }
-.nav-logo span { color: var(--white); }
 
-.nav-links { display: flex; gap: 2.5rem; list-style: none; }
-.nav-links a {
-  font-size: 0.78rem; font-weight: 600;
-  letter-spacing: 0.14em; text-transform: uppercase;
-  color: var(--dim); transition: color 0.2s;
+.nav-logo img{
+    height:60px;
+    width:auto;
+    display:block;
 }
 .nav-links a:hover { color: var(--gold); }
 
@@ -1158,7 +1156,9 @@ footer {
 
 <!-- ═══════ NAV ═══════ -->
 <nav>
- <a href="#home" class="nav-logo">KISAEEE<span>.</span></a>
+ <a href="#home" class="nav-logo">KISAEEE<span>.</span></a><a href="#home" class="nav-logo">
+    <img src="kisaee.logo.jpeg" alt="KISAEEE Logo">
+</a>
   <ul class="nav-links">
     <li><a href="#about">About</a></li>
     <li><a href="#services">Services</a></li>
