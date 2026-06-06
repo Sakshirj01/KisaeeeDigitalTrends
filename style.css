@@ -650,10 +650,8 @@ nav{
 }
 
 .process-header {
-  display:flex; justify-content:space-between; align-items:flex-end;
-  margin-bottom:5rem;
+    padding-left: 80px;
 }
-
 .process-steps {
   display:grid; grid-template-columns:repeat(5,1fr);
   position:relative;
