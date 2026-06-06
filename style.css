@@ -1067,16 +1067,21 @@ footer {
   gap:4rem; margin-bottom:4rem;
 }
 
-.footer-logo {
-  font-family:'Syne',sans-serif; font-size:1.6rem;
-  font-weight:800; color:var(--gold); margin-bottom:1.1rem;
-  letter-spacing:0.08em;
+.nav-logo {
+    display: flex;
+    align-items: center;
+    width: auto;
+    overflow: visible;
 }
-.footer-logo span { color:var(--white); }
-.footer-desc {
-  font-size:0.88rem; color:rgba(235,245,239,0.35);
-  line-height:1.85; max-width:290px;
+
+.nav-logo img {
+    height: 60px;
+    width: auto;
+    object-fit: contain;
+    transform: none;
+    max-width: 250px;
 }
+
 .footer-socials-row { display:flex; gap:0.6rem; margin-top:1.75rem; }
 
 .footer-col-title {
