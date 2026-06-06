@@ -1063,7 +1063,12 @@ footer {
   border-top:0.5px solid var(--line);
 }
 
-.footer-grid {   display:grid; grid-template-columns:2.2fr 1fr 1fr 1fr;   gap:4rem; margin-bottom:4rem; }
+.footer-grid 
+{   
+ display:grid; 
+ grid-template-columns:2.2fr 1fr 1fr 1fr;   
+ gap:4rem; margin-bottom:4rem; 
+}
 
 .nav-logo {
     display: flex;
