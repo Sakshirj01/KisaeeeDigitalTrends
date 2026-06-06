@@ -641,58 +641,69 @@
       </div>
     </div>
 
-    <div class="contact-form">
-      <div class="form-row">
-        <div class="form-group">
-          <label>First Name</label>
-          <input type="text" placeholder="John"/>
-        </div>
-        <div class="form-group">
-          <label>Last Name</label>
-          <input type="text" placeholder="Doe"/>
-        </div>
-      </div>
-      <div class="form-group">
-        <label>Email Address</label>
-        <input type="email" placeholder="john@example.com"/>
-      </div>
-      <div class="form-group">
-        <label>Phone Number</label>
-        <input type="tel" placeholder="+971 00 000 0000"/>
-      </div>
-      <div class="form-group">
-        <label>Company / Business Name</label>
-        <input type="text" placeholder="Your Company"/>
-      </div>
-      <div class="form-group">
-        <label>Service Interested In</label>
-        <select>
-          <option value="" disabled selected>Select a service</option>
-          <option>Branding &amp; Identity</option>
-          <option>Social Media Marketing</option>
-          <option>Website Design &amp; Dev</option>
-          <option>Google &amp; Meta Ads</option>
-          <option>SEO Optimization</option>
-          <option>Photography &amp; Video</option>
-          <option>Full Package</option>
-        </select>
-      </div>
-      <div class="form-group">
-        <label>Budget Range</label>
-        <select>
-          <option value="" disabled selected>Select your budget</option>
-          <option>Under 10,000 AED</option>
-          <option>10,000 – 20,000 AED</option>
-          <option>20,000 – 35,000 AED</option>
-          <option>35,000+ AED</option>
-          <option>Let's discuss</option>
-        </select>
-      </div>
-      <div class="form-group">
-        <label>Your Message</label>
-        <textarea placeholder="Tell us about your project and goals…"></textarea>
-      </div>
-      <button class="btn-submit" type="submit">Send Message →</button>
+   <form action="https://formsubmit.co/your-email@gmail.com" method="POST">
+
+  <div class="form-row">
+    <div class="form-group">
+      <label>First Name</label>
+      <input type="text" name="first_name" required>
+    </div>
+
+    <div class="form-group">
+      <label>Last Name</label>
+      <input type="text" name="last_name" required>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label>Email Address</label>
+    <input type="email" name="email" required>
+  </div>
+
+  <div class="form-group">
+    <label>Phone Number</label>
+    <input type="tel" name="phone">
+  </div>
+
+  <div class="form-group">
+    <label>Company / Business Name</label>
+    <input type="text" name="company">
+  </div>
+
+  <div class="form-group">
+    <label>Service Interested In</label>
+    <select name="service">
+      <option>Branding & Identity</option>
+      <option>Social Media Marketing</option>
+      <option>Website Design & Dev</option>
+      <option>Google & Meta Ads</option>
+      <option>SEO Optimization</option>
+      <option>Photography & Video</option>
+      <option>Full Package</option>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label>Budget Range</label>
+    <select name="budget">
+      <option>Under 10,000 AED</option>
+      <option>10,000 – 20,000 AED</option>
+      <option>20,000 – 35,000 AED</option>
+      <option>35,000+ AED</option>
+      <option>Let's discuss</option>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label>Your Message</label>
+    <textarea name="message"></textarea>
+  </div>
+
+  <button class="btn-submit" type="submit">
+    Send Message →
+  </button>
+
+</form>
     </div>
   </div>
 </section>
