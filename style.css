@@ -680,25 +680,25 @@ nav{
 }
 
 .step-name {
-  color: #000;
+  color: #ffffff;
 }
 
 .step-desc {
-  color: #555;
+  color: rgba(255,255,255,0.7);
 }
 
 .step-circle {
   border: 1px solid #00c853;
-  background: #fff;
+  background: var(--charcoal);
   color: #00c853;
 }
 
 .process-steps::before {
-  background: #dcdcdc;
+  background: var(--line);
 }
 
 .section-heading {
-  color: #000;
+  color: #ffffff !important;
 }
 /* ═══════════════════════════════════════
    PORTFOLIO
