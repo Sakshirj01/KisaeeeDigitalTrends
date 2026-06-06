@@ -644,9 +644,9 @@ nav{
 /* ═══════════════════════════════════════
    PROCESS
 ═══════════════════════════════════════ */
-#process {
-  padding: 9rem 5rem;
-  background: var(--charcoal);
+#process .section-heading {
+    color: #ffffff !important;
+    font-weight: 800;
 }
 
 .process-header {
