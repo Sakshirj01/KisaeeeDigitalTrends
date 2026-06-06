@@ -51,9 +51,11 @@ a { text-decoration: none; }
 }
 
 .section-heading {
-  font-size: clamp(2.2rem, 3.8vw, 3.8rem);
-  font-weight: 800; line-height: 1.05;
-  letter-spacing: -0.025em;
+  color: #000;
+}
+
+.section-tag {
+  color: #00c853;
 }
 
 .section-sub {
@@ -643,8 +645,8 @@ nav{
    PROCESS
 ═══════════════════════════════════════ */
 #process {
-  padding:9rem 5rem;
-  background:var(--charcoal);
+  padding: 9rem 5rem;
+  background: #ffffff;
 }
 
 .process-header {
@@ -680,11 +682,22 @@ nav{
 }
 
 .step-name {
-  font-family:'Syne',sans-serif; font-size:0.85rem;
-  font-weight:700; color:var(--white); margin-bottom:0.6rem;
-  letter-spacing:0.04em;
+  color: #000;
 }
-.step-desc { font-size:0.82rem; color:var(--muted); line-height:1.7; }
+
+.step-desc {
+  color: #555;
+}
+
+.step-circle {
+  border: 1px solid #00c853;
+  background: #fff;
+  color: #00c853;
+}
+
+.process-steps::before {
+  background: #dcdcdc;
+}
 
 /* ═══════════════════════════════════════
    PORTFOLIO
