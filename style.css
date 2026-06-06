@@ -960,8 +960,9 @@ nav{
 }
 .cta-banner-inner { position:relative; z-index:1; }
 .cta-banner h2 {
-  font-size:clamp(2.5rem,4.5vw,5rem);
-  font-weight:800; line-height:1.05; margin-bottom:1.25rem;
+    color: #ffffff !important;
+    font-weight: 800;
+}
 }
 .cta-banner h2 em {
   font-style:normal; color:transparent;
