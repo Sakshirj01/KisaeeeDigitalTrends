@@ -1,4 +1,35 @@
 <style>
+/* TOPBAR */
+.topbar{
+    background:#07120d;
+    border-bottom:1px solid rgba(46,204,113,0.15);
+    padding:10px 5rem;
+    font-size:13px;
+}
+
+.topbar-container{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    flex-wrap:wrap;
+}
+
+.topbar-left,
+.topbar-right{
+    display:flex;
+    gap:20px;
+    align-items:center;
+}
+
+.topbar a{
+    color:#EBF5EF;
+    text-decoration:none;
+    transition:0.3s;
+}
+
+.topbar a:hover{
+    color:#2ECC71;
+}
 /* ═══════════════════════════════════════
    RESET & ROOT
 ═══════════════════════════════════════ */
