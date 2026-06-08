@@ -1164,4 +1164,60 @@ footer {
   .team-grid { grid-template-columns:1fr; }
   .clients-grid { grid-template-columns:repeat(2,1fr); }
 }
+/* TOP SMALL NAVBAR */
+.top-header{
+    background:#ffffff;
+    border-bottom:1px solid #e5e5e5;
+    padding:10px 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 300;
+}
+
+.top-container{
+    width:90%;
+    margin:auto;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.top-contact{
+    display:flex;
+    gap:25px;
+    color:#00c853;
+    font-size:14px;
+    font-weight:600;
+}
+
+.top-social{
+    display:flex;
+    gap:15px;
+}
+
+.top-social a{
+    text-decoration:none;
+    color:#00c853;
+    font-weight:700;
+}
+
+/* move main navbar little down */
+nav{
+    top:50px;
+}
+
+/* mobile */
+@media(max-width:768px){
+    .top-container{
+        flex-direction:column;
+        text-align:center;
+        gap:8px;
+    }
+
+    nav{
+        top:80px;
+    }
+}
 </style>
