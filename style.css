@@ -111,7 +111,7 @@ nav {position: fixed; top: 0; left: 0; right: 0; z-index: 200;display: flex; ali
 }
 
 .nav-logo img {
-    height: 120px;
+    height: 150px;
     width: auto;
     object-fit: contain;
     transform: none;
@@ -1078,7 +1078,7 @@ footer {
 }
 
 .nav-logo img {
-    height: 120px;
+    height: 150px;
     width: auto;
     object-fit: contain;
     transform: none;
